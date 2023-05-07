@@ -6,8 +6,8 @@ public class DepositCalculation {
 
     double calculateComplexPercent(double amount, int depositPeriod) {
         double payment = amount * Math.pow((1 + YEAR_RATE / 12), 12 * depositPeriod);
-
-        return randomizePercent(payment);
+        // Не нашёл точной информации, но мне кажется здесь и в двух методах ниже ну нужна пустая строка, потому что в методе
+        return randomizePercent(payment); // в методе состоящем из 2х строк нет смысла улучшать читаемость кода
     }
 
     double calculateSimplePercent(double amount, int depositPeriod) {
@@ -16,8 +16,8 @@ public class DepositCalculation {
         return randomizePercent(payment);
     }
 
-    double randomizePercent(double value) {
-        double scale = Math.pow(10, 2);
+    double randomizePercent(double value) { // Этот метод округляет число, поэтому мне кажется что было бы лучше
+        double scale = Math.pow(10, 2);     // назвать его по другому. Например: roundNumber или как-то похоже.
 
         return Math.round(value * scale) / scale;
     }
